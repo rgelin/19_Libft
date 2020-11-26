@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 15:24:28 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/26 12:55:14 by rgelin           ###   ########.fr       */
+/*   Created: 2020/11/24 17:39:46 by rgelin            #+#    #+#             */
+/*   Updated: 2020/11/24 20:45:59 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	char	*str1;
-	char	*str2;
+    char    *res;
+    char    *str;
+    unsigned int     i;
 
-	i = 0;
-	str1 = (char *)s1;
-	str2 = (char *)s2;
-	while (i < n && (str1[i] || str2[i]))
-	{
-		if (str1[i] != str2[i])
-			return (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
-		i++;
-	}
-	return (0);
+    str = (char*)s;
+    i = 0;
+    if (!s || !f)
+        return (NULL);
+    if (!(res = malloc(sizeof(char) * ft_strlen(str) + 1)))
+        return (NULL);
+    while(str[i])
+    {
+        res[i] = f(i, str[i]);
+        i++;
+    }
+    res[i] = 0;
+    return (res);
 }
