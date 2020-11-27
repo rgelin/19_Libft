@@ -6,19 +6,19 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 20:58:24 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/23 21:20:21 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/11/27 12:56:43 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    if (lst == 0 || f == 0)
-        return ;
-    while (lst)
-    {
-        f(lst->content);
-        lst = lst->next;
-    }
+	if (lst == 0 || f == 0)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 21:27:01 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/25 15:49:47 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/11/27 13:03:52 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ static int		count_words(char const *str, char c)
 	return (nb_words);
 }
 
-static char			**malloc_error(char **str)
+static char		**malloc_error(char **str)
 {
 	int i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
@@ -44,14 +44,16 @@ static char			**malloc_error(char **str)
 	return (NULL);
 }
 
-static char			**fill_tab(char const *str, char c, char **res, int nb_words)
+static char		**fill_tab(char const *str, char c, char **res)
 {
 	int		i;
 	int		index;
 	int		j;
+	int		nb_words;
 
 	i = 0;
 	index = 0;
+	nb_words = count_words(str, c);
 	while (index < nb_words)
 	{
 		j = 0;
@@ -78,6 +80,6 @@ char			**ft_split(char const *s, char c)
 	nb_words = count_words(s, c);
 	if (!(res = malloc(sizeof(char *) * (nb_words + 1))))
 		return (NULL);
-	res = fill_tab(s, c, res, nb_words);
+	res = fill_tab(s, c, res);
 	return (res);
 }

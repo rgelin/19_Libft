@@ -6,7 +6,7 @@
 #    By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/19 12:26:15 by rgelin            #+#    #+#              #
-#    Updated: 2020/11/26 02:54:30 by rgelin           ###   ########.fr        #
+#    Updated: 2020/11/27 13:56:25 by rgelin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ NAME        =       libft.a
 			
 all:		$(NAME)
 
-${NAME}:	$(OBJS)
+$(NAME):	$(OBJS)
 			@ar rc  $(NAME) $(OBJS)
 			@ranlib $(NAME)
 
