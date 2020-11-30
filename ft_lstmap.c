@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:00:43 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/27 14:36:27 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/11/30 15:29:26 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_list;
 	t_list	*new_element;
 
-	if (l == 0 || f == 0)
+	if (l == 0 || f == 0 || del == 0)
 		return (NULL);
 	if (!(new_element = ft_lstnew(f(l->content))))
 	{

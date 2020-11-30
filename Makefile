@@ -6,7 +6,7 @@
 #    By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/19 12:26:15 by rgelin            #+#    #+#              #
-#    Updated: 2020/11/27 13:56:25 by rgelin           ###   ########.fr        #
+#    Updated: 2020/11/30 15:34:00 by rgelin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,5 +86,6 @@ re:			fclean all
 
 bonus:		$(OBJS) $(BOBJS)
 			@ar rc $(NAME) $(OBJS) $(BOBJS)
+			@ranlib $(NAME)
 
-.PHONY: all clean fclean re compile
+.PHONY: 	all clean fclean re bonus .c.o
