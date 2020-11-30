@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:19:38 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/19 13:55:35 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/11/30 14:59:40 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*dest;
+	unsigned char	*source;
 
 	i = 0;
-	if (n == 0 || dst == src)
-		return (dst);
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	if (n == 0 || dest == source)
+		return (dest);
 	while (i < n)
 	{
-		((char *)dst)[i] = ((char *)src)[i];
+		dest[i] = source[i];
 		i++;
 	}
 	return (dst);
