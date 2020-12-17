@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 21:27:01 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/30 15:27:09 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/12/02 17:15:51 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ static int		count_words(char const *str, char c)
 
 	i = 1;
 	nb_words = 0;
+	if (str[0] == 0)
+		return (0);
+	if (!c)
+		return (1);
 	if (str[0] != c)
 		nb_words = 1;
 	while (str[i])
@@ -44,20 +48,35 @@ static char		**malloc_error(char **str)
 	return (NULL);
 }
 
-static char		**fill_tab(char const *str, char c, char **res)
+static int		size_word(char const *str, char c, int i)
+{
+	int count;
+
+	count = 0;
+	while (str[i] == c && str[i] != '\0')
+	{
+		i++;
+	}
+	while (str[i] != '\0' && str[i] != c)
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
+static char		**fill_tab(char const *str, char c, char **res, int nb_words)
 {
 	int		i;
 	int		index;
 	int		j;
-	int		nb_words;
 
 	i = 0;
 	index = 0;
-	nb_words = count_words(str, c);
 	while (index < nb_words)
 	{
 		j = 0;
-		if (!(res[index] = malloc(sizeof(char) * (ft_strlen(str)))))
+		if (!(res[index] = malloc(sizeof(char) * (size_word(str, c, i) + 1))))
 			return (malloc_error(res));
 		while (str[i] && str[i] == c)
 			i++;
@@ -80,6 +99,6 @@ char			**ft_split(char const *s, char c)
 	nb_words = count_words(s, c);
 	if (!(res = malloc(sizeof(char *) * (nb_words + 1))))
 		return (NULL);
-	res = fill_tab(s, c, res);
+	res = fill_tab(s, c, res, nb_words);
 	return (res);
 }

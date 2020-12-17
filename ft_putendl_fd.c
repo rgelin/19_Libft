@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 14:54:27 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/23 13:03:10 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/12/08 12:39:59 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

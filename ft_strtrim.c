@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 15:33:14 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/20 17:10:33 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/12/17 12:29:47 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	index = 0;
 	if (s1 == 0 || set == 0)
-		return (0);
+		return (NULL);
 	end = ft_strlen(s1);
 	while (in_charset(s1[i], set))
 		i++;

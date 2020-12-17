@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 13:18:03 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/27 14:15:21 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/12/09 14:26:20 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= ft_strlen(str))
 	{
-		if (!(res = malloc(sizeof(char) * 1)))
-			return (NULL);
 		res[0] = 0;
 		return (res);
 	}

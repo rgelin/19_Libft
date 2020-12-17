@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 14:50:15 by rgelin            #+#    #+#             */
-/*   Updated: 2020/11/27 12:54:37 by rgelin           ###   ########.fr       */
+/*   Updated: 2020/12/08 12:40:56 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	int i;
 
 	i = 0;
-	if (s == 0 || fd == 0)
+	if (!s)
 		return ;
 	while (s[i])
 	{
